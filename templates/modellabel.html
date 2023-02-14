@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html>
+<style>
+
+  body { 
+    margin: 0 auto; /* Center the body element within its parent */ 
+    font-family: 'Courier New', monospace !important;
+
+  }
+
+main{
+    width: 80%;
+    display: block;
+    text-align: left;
+    font-family: 'Courier New', monospace; 
+    margin:auto;
+    background-color: white;
+    border-radius: 5px;
+}
+
+
+</style>
+<head>
+  <title>🚨📧 Detekce phishingového emailu</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.js"></script>
+  
+</head>
+
+<body>
+  <div class="p-5 bg-danger text-white text-center">
+    <h1>🚨📧 Detekce phishingového emailu</h1>
+  </div>
+
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <div class="container-fluid">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'home' %}">Home</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link active" href="{% url 'modellabel' %}">Model 1</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'modeltext' %}">Model 2</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+<main>
+
+
+<form action="result">
+{% csrf_token %}
+
+<div class="row justify-content-evenly">
+<div class="col-sm-6 bg-dark text-white " align="center">
+  <div class="p-3 border bg-light">
+  <br>
+  <button type="button" class="btn btn-light btn-lg" data-bs-toggle="modal" data-bs-target="#myModal1">
+    ⌛ Obsahuje email prvky naléhání? ⓘ
+  </button>
+
+
+<div class="modal" id="myModal1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header" >
+        <h4 class="modal-title text-dark">Prvky naléhání</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body text-dark">
+        Pokud email obsahuje prvky naléhání. Pokud email obsahuje prvky naléhání. Pokud email obsahuje prvky naléhání. Pokud email obsahuje prvky naléhání.
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer text-dark">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Zavřít</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+<br>
+  <input type="radio" class="btn-check" name="nalehani" value="no" id="nalehanioption1" autocomplete="off">
+  <label class="btn btn-outline-success btn-lg" for="nalehanioption1" align="right" >Ne</label>
+
+  <input type="radio" class="btn-check" name="nalehani" value="yes" id="nalehanioption2" autocomplete="off">
+  <label class="btn btn-outline-danger btn-lg" for="nalehanioption2" >Ano </label>
+  <br>
+  <br>
+</div>
+</div>
+
+<div class="col-sm-6 bg-light text-white p-3 border bg-light" align="center">
+
+  <br>
+  <button type="button" class="btn btn-light btn-lg" data-bs-toggle="modal" data-bs-target="#myModal">
+    🤩 Obsahuje email lukrativní nabídku? ⓘ
+  </button>
+
+
+<div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Modal Heading</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        Modal body..
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Zavřít</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+<br>
+  <input type="radio" class="btn-check" name="lukrativni" value="no" id="lukrativnioption1" autocomplete="off" >
+  <label class="btn btn-outline-success btn-lg" for="lukrativnioption1" name="lukrativni1" >Ne </label>
+
+  <input type="radio" class="btn-check" name="lukrativni" value="yes" id="lukrativnioption2" autocomplete="off">
+  <label class="btn btn-outline-danger btn-lg" for="lukrativnioption2" >Ano</label>
+  <br>
+</div>
+</div>
+<br>
+
+
+<div class="row justify-content-evenly">
+
+<div class="col-sm-6 bg-danger text-white " align="center">
+  <div class="p-3 border bg-light">
+   <br>
+  <button type="button" class="btn btn-light btn-lg" data-bs-toggle="modal" data-bs-target="#myModal">
+    🔗 Obsahuje email hyperlink? ⓘ
+  </button>
+<div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Modal Heading</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        Modal body..
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Zavřít</button>
+      </div>
+
+    </div>
+  </div>
+  </div>
+<br>
+  <input type="radio" class="btn-check" name="hyperlink" value="no" id="hyperlinkoption1" autocomplete="off" >
+  <label class="btn btn-outline-success btn-lg" for="hyperlinkoption1" >Ne </label>
+
+  <input type="radio" class="btn-check" name="hyperlink" value="yes" id="hyperlinkoption2" autocomplete="off">
+  <label class="btn btn-outline-danger btn-lg" for="hyperlinkoption2" >Ano </label>
+  <br>
+  <br>
+</div>
+</div>
+
+<div class="col-sm-6 bg-light text-white p-3 border" align="center">
+
+  <br>
+  <button type="button" class="btn btn-light btn-lg" data-bs-toggle="modal" data-bs-target="#myModal">
+    📄 Obsahuje email přílohu? ⓘ
+  </button>
+
+
+<div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Modal Heading</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        Modal body..
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Zavřít</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+<br>
+  <input type="radio" class="btn-check" name="priloha" value="no" id="prilohaoption1" autocomplete="off" >
+  <label class="btn btn-outline-success btn-lg" for="prilohaoption1" >Ne </label>
+
+  <input type="radio" class="btn-check" name="priloha" value="yes" id="prilohaoption2" autocomplete="off">
+  <label class="btn btn-outline-danger btn-lg rounded-left" for="prilohaoption2" >Ano </label>
+  <br>
+  </div>
+  </div>
+  <br>
+
+<div class="row">
+  <div class="col-sm-6 bg-dark text-white " align="center">
+    <div class="p-3 border bg-light">
+  <br>
+  <button type="button" class="btn btn-light btn-lg" data-bs-toggle="modal" data-bs-target="#myModal">
+    😳 Je vizuální podoba emailu podezřelá? ⓘ
+  </button>
+
+
+<div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Modal Heading</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        Modal body..
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Zavřít</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+<br>
+  <input type="radio" class="btn-check" name="podezrela" value="no" id="podezrelaoption1" autocomplete="off" >
+  <label class="btn btn-outline-success btn-lg" for="podezrelaoption1" >Ne </label>
+
+  <input type="radio" class="btn-check" name="podezrela" value="yes" id="podezrelaoption2" autocomplete="off">
+  <label class="btn btn-outline-danger btn-lg" for="podezrelaoption2" >Ano </label>
+  <br>
+  <br>
+</div>
+</div>
+<div class="col-sm-6 bg-light text-white border bg-light p-3" align="center">
+
+  <br>
+  <button type="button" class="btn btn-light btn-lg" data-bs-toggle="modal" data-bs-target="#myModal">
+    🤯 Obsahuje email špatnou gramatiku? ⓘ
+  </button>
+
+
+<div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Modal Heading</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        Modal body..
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Zavřít</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+<br>
+  <input type="radio" class="btn-check" name="gramatika" value="no" id="gramatikaoption1" autocomplete="off" >
+  <label class="btn btn-outline-success btn-lg" for="gramatikaoption1" >Ne </label>
+
+  <input type="radio" class="btn-check" name="gramatika" value="yes" id="gramatikaoption2" autocomplete="off">
+  <label class="btn btn-outline-danger btn-lg" for="gramatikaoption2" >Ano </label>
+  <br>
+  <br>
+
+</div>
+</div>
+<br>
+
+<div class="row">
+  <div class="col-sm-6 bg-danger text-white " align="center">
+    <div class="p-3 border bg-light">
+  <br>
+  <button type="button" class="btn btn-light btn-lg" data-bs-toggle="modal" data-bs-target="#myModal">
+    💵 Obsahuje email finance? ⓘ
+  </button>
+
+
+<div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Modal Heading</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        Modal body..
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Zavřít</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+<br>
+  <input type="radio" class="btn-check" name="finance" value="no" id="financeoption1" autocomplete="off">
+  <label class="btn btn-outline-success btn-lg" for="financeoption1" >Ne </label>
+
+  <input type="radio" class="btn-check" name="finance" value="yes" id="financeoption2" autocomplete="off">
+  <label class="btn btn-outline-danger btn-lg" for="financeoption2" >Ano </label>
+  <br>
+  <br>
+</div>
+</div>
+<div class="col-sm-6 bg-light text-white border bg-light" align="center">
+
+  <br>
+  <input class="btn btn-danger btn-lg rounded-pill p-5" type="submit" value='🔮 PREDIKUJ!'>
+  <br>
+  <br>
+
+</div>
+</div>
+<br>
+</form>
+
+
+</main>
+<div class="mt-5 p-4 bg-dark text-white text-center fixed-bottom">
+  <p>© Jan Klačmera - Diplomová práce</p>
+</div>
+<script>
+  var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+  var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl)
+  })
+  </script>
+</body>
+</html>

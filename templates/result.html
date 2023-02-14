@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="cs" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Result</title>
+
+  <script src="https://kit.fontawesome.com/47101d2035.js" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <style>
+
+      body { 
+        margin: 0 auto; /* Center the body element within its parent */ 
+        font-family: 'Courier New', monospace !important;
+    
+      }
+    
+    main{
+        padding-top: 250px;
+        width: 80%;
+        display: block;
+        text-align: center;
+        font-family: 'Courier New', monospace; 
+        margin:auto;
+        background-color: white;
+        border-radius: 5px;
+    }
+    
+    
+    </style>
+</head>
+
+<body>
+<main>
+
+  {% if result == 'yes' %}
+  <h1 style=" color: rgb(212, 85, 85); font-weight: 900;">
+  ⚠️   Phishing!
+
+  {% elif result == 'no' %}
+  <h1 style="color: rgb(88, 180, 88);; font-weight: 900;">
+  💚 Validní email!
+
+  {% else %}
+  <h1 style="color: rgb(31, 15, 15); font-weight: 900;">ERROR</h1>
+  {% endif %}
+
+<br>
+<br>
+<br>
+
+  <a href="{% url 'modellabel' %}" class="btn btn-danger btn-lg" role="button">⬅ ZPĚT</a>
+  </main>
+  <div class="mt-5 p-4 bg-dark text-white text-center fixed-bottom">
+    <p>© Jan Klačmera - Diplomová práce</p>
+  </div>
+</body>
+
+</html>
